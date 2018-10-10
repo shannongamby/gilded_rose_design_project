@@ -1,6 +1,12 @@
 require 'sulfuras'
 describe Sulfuras do
 
+  it "does not change the name" do
+    item = Sulfuras.new("Sulfuras, Hand of Ragnaros", 1, 80)
+    item.update_sulfuras
+    expect(item.name).to eq "Sulfuras, Hand of Ragnaros"
+  end
+
   it 'does not change sell_in' do
     item = Sulfuras.new("Sulfuras, Hand of Ragnaros", 1, 80)
     item.update_sulfuras

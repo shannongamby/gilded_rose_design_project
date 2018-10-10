@@ -1,6 +1,12 @@
 require 'backstage_pass'
 describe BackstagePass do
 
+  it "does not change the name" do
+    item = BackstagePass.new("Backstage passes to a TAFKAL80ETC concert", 15, 0)
+    item.update_backstage_pass
+    expect(item.name).to eq "Backstage passes to a TAFKAL80ETC concert"
+  end
+
   it 'increases quality by one after each day' do
     item = BackstagePass.new("Backstage passes to a TAFKAL80ETC concert", 15, 0)
     item.update_backstage_pass
@@ -35,6 +41,12 @@ describe BackstagePass do
     item = BackstagePass.new("Backstage passes to a TAFKAL80ETC concert", 5, 48)
     item.update_backstage_pass
     expect(item.quality).to eq(50)
+  end
+
+  it "never lowers quality below 0" do
+    item = BackstagePass.new("Backstage passes to a TAFKAL80ETC concert", 0, 0)
+    item.update_backstage_pass
+    expect(item.quality).to eq(0)
   end
 
 end

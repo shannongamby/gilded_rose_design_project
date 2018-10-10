@@ -2,7 +2,7 @@ class GildedRose
 
   def initialize(items)
     @items = items
-    @special_cases = ["Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert"]
+    @special_cases = ["Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert", "Conjured"]
   end
 
   def update_quality
@@ -15,6 +15,7 @@ class GildedRose
       item.update_brie if item.name == @special_cases[0]
       item.update_sulfuras if item.name == @special_cases[1]
       item.update_backstage_pass if item.name == @special_cases[2]
+      item.update_conjured if item.name == @special_cases[3]
       update_generic unless @special_cases.include?(item.name)
     }
   end

@@ -127,6 +127,14 @@ describe GildedRose do
         end
       end
 
+      context 'when item is Conjured' do
+        it "lowers the quality by two after one day" do
+          item = Conjured.new("Conjured", 1, 2)
+          GildedRose.new([item]).update_quality
+          expect(item.quality).to eq 0
+        end
+      end
+
       context 'after sell_in' do
         it 'sets quality to 0' do
           item = BackstagePass.new("Backstage passes to a TAFKAL80ETC concert", 0, 50)
