@@ -11,9 +11,8 @@ class Sulfuras
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 
-  def update_sulfuras_quality
+  def update_sulfuras
     self
   end
-
 
 end
