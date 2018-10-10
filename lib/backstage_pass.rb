@@ -11,7 +11,7 @@ class BackstagePass
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 
-  def update_backstage_pass
+  def update
     update_case_one if @sell_in > 10
     update_case_two if (6..10).cover?(@sell_in)
     update_case_three if (1..5).cover?(@sell_in)

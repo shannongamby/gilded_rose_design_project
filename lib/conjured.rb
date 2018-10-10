@@ -11,7 +11,7 @@ class Conjured
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 
-  def update_conjured
+  def update
     @quality -= 2 unless @quality <= 1
     @quality = 0 if @quality == 1
   end

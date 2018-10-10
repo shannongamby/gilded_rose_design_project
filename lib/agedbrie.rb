@@ -11,7 +11,7 @@ class AgedBrie
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 
-  def update_brie
+  def update
     @quality += 1 if @quality == 49
 
     if sell_in.zero?
@@ -24,5 +24,5 @@ class AgedBrie
   def max_quality?
     @quality == 50
   end
-  
+
 end

@@ -12,11 +12,11 @@ class GildedRose
 
   def update_by_name
     @items.each { |item|
-      item.update_brie if item.name == @special_cases[0]
-      item.update_sulfuras if item.name == @special_cases[1]
-      item.update_backstage_pass if item.name == @special_cases[2]
-      item.update_conjured if item.name == @special_cases[3]
-      update_generic unless @special_cases.include?(item.name)
+      if @special_cases.include?(item.name)
+        item.update
+      else
+        update_generic
+      end
     }
   end
 
