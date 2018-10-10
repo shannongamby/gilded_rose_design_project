@@ -2,7 +2,12 @@ class GildedRose
 
   def initialize(items)
     @items = items
-    @special_cases = ["Aged Brie", "Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert", "Conjured"]
+    @special_cases = [
+                        "Aged Brie",
+                        "Sulfuras, Hand of Ragnaros",
+                        "Backstage passes to a TAFKAL80ETC concert",
+                        "Conjured"
+                      ]
   end
 
   def update_quality
