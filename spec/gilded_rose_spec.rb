@@ -3,8 +3,10 @@ require 'gilded_rose'
 describe GildedRose do
 
   let(:item) { double :item }
+  subject { described_class.new([item]) }
 
   it "should respond to #update_quality" do
-    expect(GildedRose.new([item])).to respond_to(:update_quality)
+    allow(item).to receive(:update) { item }
+    expect(subject.update_quality).to eq([item])
   end
 end
