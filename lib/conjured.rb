@@ -14,6 +14,11 @@ class Conjured
   def update
     @quality -= 2 unless @quality <= 1
     @quality = 0 if @quality == 1
+    reduce_sell_in
+  end
+
+  def reduce_sell_in
+    @sell_in -= 1
   end
 
 end

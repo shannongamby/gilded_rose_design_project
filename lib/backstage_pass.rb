@@ -12,24 +12,29 @@ class BackstagePass
   end
 
   def update
-    update_case_one if @sell_in > 10
-    update_case_two if (6..10).cover?(@sell_in)
-    update_case_three if (1..5).cover?(@sell_in)
+    increase_quality_by_one if @sell_in > 10
+    increase_quality_by_two if (6..10).cover?(@sell_in)
+    increase_quality_by_three if (1..5).cover?(@sell_in)
     @quality = 0 if @sell_in <= 0
+    reduce_sell_in
   end
 
-  def update_case_one
+  def increase_quality_by_one
     @quality += 1 unless max_quality?
   end
 
-  def update_case_two
+  def increase_quality_by_two
     @quality += 1 if @quality == 49
     @quality += 2 unless max_quality?
   end
 
-  def update_case_three
+  def increase_quality_by_three
     @quality = 50 if @quality >= 48
     @quality += 3 unless max_quality?
+  end
+
+  def reduce_sell_in
+    @sell_in -= 1
   end
 
   def max_quality?

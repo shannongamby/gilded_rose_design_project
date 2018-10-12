@@ -1,4 +1,5 @@
-class AgedBrie
+class Generic
+
   attr_accessor :name, :sell_in, :quality
 
   def initialize(name, sell_in, quality)
@@ -12,10 +13,10 @@ class AgedBrie
   end
 
   def update
-    @quality += 1 if @quality == 49
-    unless max_quality?
-      @quality += 2 if sell_in.zero?
-      @quality += 1 unless sell_in.zero?
+    @quality = 0 if @quality == 1
+    unless @quality.zero?
+      @quality -= 2 if @sell_in <= 0
+      @quality -= 1 if @sell_in > 0
     end
     reduce_sell_in
   end
@@ -23,9 +24,4 @@ class AgedBrie
   def reduce_sell_in
     @sell_in -= 1
   end
-
-  def max_quality?
-    @quality == 50
-  end
-
 end
