@@ -6,7 +6,7 @@ describe GildedRose do
   subject { described_class.new([item]) }
 
   it "should respond to #update_quality" do
-    allow(item).to receive(:update) { item }
+    allow(item).to receive(:update)
     expect(subject.update_quality).to eq([item])
   end
 end
